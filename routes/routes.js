@@ -8,5 +8,10 @@ router.route('/user/login').post(userController.loginUserControllerFunc);
 // ruta para crear usuario
 router.route('/user/create').post(userController.createUserControllerFunc);
 
+router.route('/user/search').get(userController.searchUserByEmailControllerFunc);
+
+router.route('/user/delete').delete(userController.deleteUserByEmailControllerFunc);
+
+router.route('/user/update').put(userController.updateUserByEmailControllerFunc);
 
 module.exports = router;
