@@ -12,6 +12,6 @@ router.route('/user/search').get(userController.searchUserByEmailControllerFunc)
 
 router.route('/user/delete').delete(userController.deleteUserByEmailControllerFunc);
 
-router.route('/user/update').put(userController.updateUserByEmailControllerFunc);
+router.route('/user/update/:email').put(userController.updateUserByEmailControllerFunc);
 
 module.exports = router;

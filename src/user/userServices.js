@@ -51,9 +51,9 @@ module.exports.loginuserDBService = (userDetails) => {
    });
 }
 
-module.exports.searchuserDBService = (search, userDetails) => {
-   return new Promise(function myFN(resolve, reject) {
-      userModel.findOne({ email: search },userDetails, function getResult(errorvalue, result) {
+module.exports.searchuserDBService = (search) => {
+   return new Promise(function myNf(resolve, reject) {
+      userModel.findOne({ email: search }, function getResult(errorvalue, result) {
          if (errorvalue) {
             reject({ status: false, msg: "No existe" })
          }
@@ -69,9 +69,21 @@ module.exports.searchuserDBService = (search, userDetails) => {
    })
 }
 
-module.exports.updateuserDBService = (search) => {
+module.exports.searchalluserDBService = (search) =>{
+   return new Promise(function myNf(resolve,reject){
+      userModel.find({firstname : search},function getResult(errorvalue,result){
+         if(errorvalue){
+            reject({status:false,msg:"Error"})
+         }
+         else{
+         }
+      })
+   })
+}
+
+module.exports.updateuserDBService = (search, userDetails) => {
    return new Promise(function myNf(resolve, reject) {
-      userModel.findOneAndUpdate({ email: search }, function getResult(errorvalue, result) {
+      userModel.findOneAndUpdate({ email: search },userDetails, function getResult(errorvalue, result) {
          if (errorvalue) {
             reject({ status: false, msg: "No se encontro" })
          }

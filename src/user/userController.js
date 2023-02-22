@@ -35,7 +35,7 @@ var searchUserByEmailControllerFunc = async (req, res) => {
 
 var updateUserByEmailControllerFunc = async (req, res) => {
     try {
-        var result = await userService.updateuserDBService(req.param('email'),req.body)
+        var result = await userService.updateuserDBService(req.params.email,req.body)
         if (result.status && result) {
             res.send({ "status": true, "message": result.msg })
         }
